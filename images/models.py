@@ -15,7 +15,6 @@ class Image(models.Model):
     created = models.DateField(auto_now_add=True)
 
     class Meta:
-        # индекс базы данных в убывающем порядке по полю created
         indexes = [
             models.Index(fields=['-created']),
             models.Index(fields=['-total_likes']),
@@ -24,12 +23,7 @@ class Image(models.Model):
 
     def __str__(self):
         return self.title
-
-    # Если при сохранении объекта Image поле slug является пустым, то slug ге-
-    # нерируется автоматически из поля title изображения с помощью функции
-    # slugify(). Затем объект сохраняется. Благодаря автоматическому генериро-
-    # ванию слага из заголовка пользователям не придется указывать слаг, когда
-    # они делятся изображениями на сайте.
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
