@@ -5,7 +5,7 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    #path('login/', views.user_login, name='login'),
+    # path('login/', views.user_login, name='login'),
 
     # path('', views.dashboard, name='dashboard'),
 
@@ -33,8 +33,3 @@ urlpatterns = [
     path('users/follow/', views.user_follow, name='user_follow'),
     path('users/<username>/', views.user_detail, name='user_detail'),
 ]
-
-
-# Представление PasswordChangeView будет работать с формой для смены пароля, 
-# а представление PasswordChangeDoneView будет отображать сообщение об успехе,
-# после того как пользователь успешно сменит свой пароль
