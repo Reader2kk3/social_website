@@ -5,5 +5,4 @@ class ImagesConfig(AppConfig):
     name = 'images'
 
     def ready(self):
-        # импортировать обработчики сигналов
         import images.signals
